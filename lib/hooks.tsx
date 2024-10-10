@@ -5,7 +5,7 @@ import type { SectionName } from '@/lib/type';
 
 export const useActiveInView = (activeName: SectionName) => {
   const { setActiveSection, timeOfLastClick } = useActiveSectionContext();
-  const { ref, inView } = useInView({ threshold: 1 });
+  const { ref, inView } = useInView({ threshold: 0.75 });
 
   useEffect(() => {
     if (inView && Date.now() - timeOfLastClick > 1000)
