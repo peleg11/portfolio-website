@@ -10,7 +10,7 @@ import { useActiveInView } from '@/lib/hooks';
 import { useActiveSectionContext } from '@/context/active-section-context';
 
 export default function Intro() {
-  const { ref } = useActiveInView('Home');
+  const { ref } = useActiveInView('Home', 0.75);
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
 
   return (
