@@ -24,7 +24,7 @@ export default function Intro() {
         animate={{ opacity: 1, y: 0 }}
         className='mb-10 mt-4 px-4 text-2xl font-medium !leading-[1.5] sm:text-3xl'
       >
-        <span className='font-bold'>Hi, I'm Shay Peleg.</span>
+        <span className='font-bold'>Hi, I&apos;m Shay Peleg.</span>
         <div className='relative flex items-center justify-center mt-8'>
           <motion.div
             initial={{ opacity: 0, scale: 0 }}
@@ -54,10 +54,9 @@ export default function Intro() {
           </motion.div>
         </div>
         <br />
-        I'm an <span className='font-bold'>
-          experienced Frontend Developer
-        </span>{' '}
-        with a passion for creating{' '}
+        I&apos;m an{' '}
+        <span className='font-bold'>experienced Frontend Developer</span> with a
+        passion for creating{' '}
         <span className='italic'>
           pixel-perfect, user-friendly web applications.
         </span>{' '}

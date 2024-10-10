@@ -10,7 +10,7 @@ export const useActiveInView = (activeName: SectionName) => {
   useEffect(() => {
     if (inView && Date.now() - timeOfLastClick > 1000)
       setActiveSection(activeName);
-  }, [inView, timeOfLastClick]);
+  }, [inView, timeOfLastClick, activeName, setActiveSection]);
 
   return { ref };
 };
