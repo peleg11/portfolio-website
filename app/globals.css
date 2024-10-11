@@ -11,3 +11,6 @@ html.dark {
 .borderBlack {
   @apply border border-black/10;
 }
+.custom-blur {
+  filter: blur(10rem);
+}
