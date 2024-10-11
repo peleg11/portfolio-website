@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { useActiveInView } from '@/lib/hooks';
 
 export default function About() {
-  const { ref } = useActiveInView('About');
+  const { ref } = useActiveInView('About', 0.75);
 
   return (
     <motion.section
