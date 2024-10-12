@@ -27,8 +27,8 @@ export default function RootLayout({
       <body
         className={`${kanit.className} pt-28 sm:pt-36 relative bg-gray-50 text-gray-950 dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90`}
       >
-        <div className='bg-[#90f95f95] custom-blur absolute top-[-6rem] -z-10 right-[6rem] h-[31.25rem] w-[31.25rem] rounded-full sm:w-[68.75rem] dark:bg-[#e69859d3]'></div>
-        <div className='bg-[#6baaf1d7] custom-blur absolute top-[-1rem] -z-10 left-[-35rem] h-[31.25rem] w-[50rem] rounded-full sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem] dark:bg-[#676394]'></div>
+        <circle className='bg-[#90f95f95] custom-blur absolute top-[-6rem] -z-10 right-[6rem] h-[31.25rem] w-[31.25rem] rounded-full sm:w-[68.75rem] dark:bg-[#e69859d3]'></circle>
+        <circle className='bg-[#6baaf1d7] custom-blur absolute top-[-1rem] -z-10 left-[-35rem] h-[31.25rem] w-[50rem] rounded-full sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem] dark:bg-[#676394]'></circle>
         <ThemeContextProvider>
           <ActiveSectionContextProvider>
             <Header />
