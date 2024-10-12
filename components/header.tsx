@@ -29,8 +29,8 @@ export default function Header() {
               key={hash}
             >
               <Link
-                className={`flex w-full items-center justify-center px-3 py-3 hover:text-gray-950 transition dark:text-gray-500 dark:hover:text-gray-200 ${
-                  activeSection === name && 'text-gray-950 dark:text-gray-200'
+                className={`flex w-full items-center justify-center px-3 py-3 hover:text-gray-950 transition dark:text-gray-500 dark:hover:text-white ${
+                  activeSection === name && 'text-gray-950 dark:text-white'
                 }`}
                 href={hash}
                 onClick={() => {
