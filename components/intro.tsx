@@ -38,33 +38,25 @@ export default function Intro() {
               quality="100"
               priority={true}
             />
-            <motion.span
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{
-                type: "spring",
-                stiffness: 125,
-                delay: 0.2,
-                duration: 0.9,
-              }}
-              className="absolute bottom-0 right-0 text-4xl"
-            >
-              👋
-            </motion.span>
           </motion.div>
         </div>
         <br />
-        I&apos;m an{" "}
-        <span className="font-bold">experienced Frontend Developer</span> with a
-        passion for creating{" "}
+        I&apos;m a{" "}
+        <span className="font-bold">
+          Senior Full-Stack Engineer &amp; Frontend Specialist
+        </span>{" "}
+        building complex web applications and{" "}
+        <span className="italic">AI-driven platforms</span> with{" "}
         <span className="italic">
-          pixel-perfect, user-friendly web applications.
+          pixel-perfect, high-performance user experiences.
         </span>{" "}
         I have a keen eye for <span className="font-bold">UX design</span> and a
         strong foundation in{" "}
         <span className="font-bold">Software Engineering.</span> <br />
         My focus is{" "}
-        <span className="italic">React, Next.js, TypeScript and CSS.</span>
+        <span className="italic">
+          React, Next.js, TypeScript, Node.js and AI system orchestration.
+        </span>
       </motion.h1>
 
       <motion.div
@@ -85,7 +77,7 @@ export default function Intro() {
           <BsArrowRight className="opacity-70 group-hover:translate-x-1 transition " />
         </Link>
         <a
-          href="/shayPelegCV.pdf"
+          href="/ShayPelegCV.pdf"
           download
           className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full  outline-none hover:scale-105 active:scale-95 transition cursor-pointer borderBlack dark:bg-white/10"
         >
