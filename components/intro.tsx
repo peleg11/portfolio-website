@@ -19,45 +19,46 @@ export default function Intro() {
       id="home"
       className="scroll-mt-[109rem] mb-28 max-w-[50rem] text-center sm:mb-0"
     >
+      <motion.div
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ type: "tween", duration: 0.3 }}
+        className="flex items-center justify-center"
+      >
+        <Image
+          className="h-48 w-48 rounded-full border-[0.35rem] border-white object-cover shadow-xl"
+          src={pic}
+          alt="Portrait of Shay Peleg"
+          quality="100"
+          priority={true}
+        />
+      </motion.div>
+
       <motion.h1
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
-        className="mb-10 mt-4 px-4 text-2xl font-medium !leading-[1.5] sm:text-3xl"
+        className="mb-4 mt-8 px-4 text-3xl font-bold !leading-[1.3] sm:text-5xl"
       >
-        <span className="font-bold">Hi, I&apos;m Shay Peleg.</span>
-        <div className="relative flex items-center justify-center mt-8">
-          <motion.div
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ type: "tween", duration: 0.3 }}
-          >
-            <Image
-              className="h-48 w-48 rounded-full border-[0.35rem] border-white object-cover shadow-xl"
-              src={pic}
-              alt="shay peleg photo"
-              quality="100"
-              priority={true}
-            />
-          </motion.div>
-        </div>
+        Hi, I&apos;m Shay Peleg.
         <br />
-        I&apos;m a{" "}
-        <span className="font-bold">
-          Senior Full-Stack Engineer &amp; Frontend Specialist
-        </span>{" "}
-        building complex web applications and{" "}
-        <span className="italic">AI-driven platforms</span> with{" "}
-        <span className="italic">
-          pixel-perfect, high-performance user experiences.
-        </span>{" "}
-        I have a keen eye for <span className="font-bold">UX design</span> and a
-        strong foundation in{" "}
-        <span className="font-bold">Software Engineering.</span> <br />
-        My focus is{" "}
-        <span className="italic">
-          React, Next.js, TypeScript, Node.js and AI system orchestration.
+        <span className="font-medium">
+          I build <span className="italic">AI-driven products</span> people
+          actually enjoy using.
         </span>
       </motion.h1>
+
+      <motion.p
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.05 }}
+        className="mb-10 px-4 text-lg font-medium !leading-[1.6] text-gray-700 dark:text-white/70 sm:text-xl"
+      >
+        <span className="font-bold text-gray-900 dark:text-white">
+          Senior Full-Stack Engineer &amp; Frontend Specialist.
+        </span>
+        <br />
+        React, Next.js, TypeScript and multi-agent systems.
+      </motion.p>
 
       <motion.div
         initial={{ opacity: 0, y: 100 }}
@@ -73,13 +74,13 @@ export default function Intro() {
             setTimeOfLastClick(Date.now());
           }}
         >
-          Contact me here
-          <BsArrowRight className="opacity-70 group-hover:translate-x-1 transition " />
+          Get in touch
+          <BsArrowRight className="opacity-70 group-hover:translate-x-1 transition" />
         </Link>
         <a
           href="/ShayPelegCV.pdf"
           download
-          className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full  outline-none hover:scale-105 active:scale-95 transition cursor-pointer borderBlack dark:bg-white/10"
+          className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-none hover:scale-105 active:scale-95 transition cursor-pointer borderBlack dark:bg-white/10"
         >
           Download CV
           <HiDownload className="opacity-60 group-hover:translate-y-1 transition" />
@@ -87,14 +88,18 @@ export default function Intro() {
         <a
           href="https://www.linkedin.com/in/shay-peleg11/"
           target="_blank"
-          className="bg-white text-gray-700 p-4 flex items-center gap-2 rounded-full  outline-none hover:scale-[1.15rem] active:scale-105 transition cursor-pointer borderBlack hover:text-gray-950  dark:bg-white/10 dark:text-white/60 hover:dark:text-gray-50"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn profile"
+          className="bg-white text-gray-700 p-4 flex items-center gap-2 rounded-full outline-none hover:scale-110 active:scale-105 transition cursor-pointer borderBlack hover:text-gray-950 dark:bg-white/10 dark:text-white/60 hover:dark:text-gray-50"
         >
           <BsLinkedin />
         </a>
         <a
           href="https://github.com/peleg11"
           target="_blank"
-          className="bg-white text-gray-700 p-4 flex items-center gap-2 rounded-full  outline-none hover:scale-[1.15rem] active:scale-105 transition cursor-pointer borderBlack hover:text-gray-950 hover:dark:text-gray-50 dark:bg-white/10 dark:text-white/60"
+          rel="noopener noreferrer"
+          aria-label="GitHub profile"
+          className="bg-white text-gray-700 p-4 flex items-center gap-2 rounded-full outline-none hover:scale-110 active:scale-105 transition cursor-pointer borderBlack hover:text-gray-950 hover:dark:text-gray-50 dark:bg-white/10 dark:text-white/60"
         >
           <BsGithub />
         </a>
