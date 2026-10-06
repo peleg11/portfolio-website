@@ -30,32 +30,32 @@ export const links = [
 
 export const experiencesData = [
   {
-    title: "Full-Stack Engineer - Frontend Specialist",
+    title: "Full-Stack Engineer, Frontend Specialist · dig.ai",
     location: "Tel-Aviv, IL",
-    description: `I led the end-to-end development of two flagship AI chatbot products at dig.ai: a complex enterprise-facing solution and a self-serve platform (ask.dig.ai). I architected the frontend infrastructure and managed highly dynamic application state with Jotai and JSS, and expanded into full-stack work by integrating complex UI features with backend services to support sophisticated conversational workflows. I also integrated AI-native coding tools (Cursor, Claude Code) into daily engineering workflows to speed up delivery.`,
+    description: `Led end-to-end development of two flagship AI chatbot products: an enterprise platform and the self-serve ask.dig.ai. Architected the frontend infrastructure and managed highly dynamic application state with Jotai and JSS. Expanded into full-stack work, connecting complex UI features to backend services that power sophisticated conversational workflows. Introduced AI-assisted development with Cursor and Claude Code, including custom skills now used across the entire R&D team.`,
     icon: React.createElement(CgWorkAlt),
     date: "2025 - Present",
   },
   {
-    title: "Frontend Engineer",
+    title: "Frontend Engineer · Code Ocean",
     location: "Tel-Aviv, IL",
-    description: `I worked as a frontend engineer at Code Ocean for 3 years, building from scratch, refactoring and maintaining client-side features of a complex React single page application. I created atomic React components and hooks, combined them with logic using Redux and Redux Saga, and connected them to the API, working closely with backend developers, product and QA to deliver a user-friendly, bug-free experience.`,
+    description: `Spent 3 years building, refactoring and maintaining client-side features of a complex React single-page application. Created atomic React components and hooks, wired them to the API with Redux and Redux-Saga, and worked closely with backend, product and QA to ship a reliable, user-friendly experience.`,
     icon: React.createElement(CgWorkAlt),
     date: "2021 - 2024",
   },
   {
-    title: "Graduated B.Sc Software Engineering",
+    title: "B.Sc Software Engineering · SCE",
     location: "Beer Sheva, IL",
     description:
-      "I graduated my SWE degree after 4 years of studying at Sami Shamoon College of Engineering (SCE) Majoring in Data Science. I started working as a frontend developer on the third year as a student (2021).",
+      "Sami Shamoon College of Engineering, majoring in Data Science. Started working as a frontend developer in my third year of study.",
     icon: React.createElement(LuGraduationCap),
     date: "2018 - 2022",
   },
   {
-    title: "Graduated B.Sc Life Sciences",
+    title: "B.Sc Life Sciences · Ben-Gurion University",
     location: "Beer Sheva, IL",
     description:
-      "I graduated my life sciences degree after 3.5 years of studying at Ben-Gurion University.",
+      "Completed a 3.5-year degree in Life Sciences before moving into software engineering.",
     icon: React.createElement(LuGraduationCap),
     date: "2014 - 2018",
   },
@@ -85,28 +85,26 @@ export const projectsData = [
   },
 ] as const;
 
+// Ordered by relevance to your positioning (AI + frontend first).
+// HTML and CSS removed: they're assumed at senior level.
 export const skillsData = [
   "TypeScript",
-  "JavaScript",
   "React",
   "Next.js",
   "Node.js",
   "Python",
-  "HTML",
-  "CSS",
-  "Jotai",
-  "Redux",
-  "Redux-Saga",
-  "JSS",
-  "Styled-components",
-  "Tailwind CSS",
-  "Framer Motion",
-  "REST APIs",
-  "MCP",
   "Multi-Agent Systems",
   "Claude Code",
   "Cursor",
-  "Git",
+  "Jotai",
+  "Redux",
+  "Redux-Saga",
+  "Tailwind CSS",
+  "Styled-components",
+  "JSS",
+  "Framer Motion",
+  "REST APIs",
   "Docker",
+  "Git",
   "UX Design",
 ] as const;
