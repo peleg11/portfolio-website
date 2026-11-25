@@ -13,9 +13,9 @@ export default function Footer() {
 
   return (
     // The closing screen: the contact block, then the directory, one screen together.
-    <footer className="flex flex-col pb-10 sm:min-h-svh">
+    <footer className="flex flex-col pb-10 lg:min-h-svh">
       <Contact />
-      <div className="wrap mt-12 border-t border-ink/[0.12] pt-10 sm:mt-auto sm:pt-16">
+      <div className="wrap mt-12 border-t border-ink/[0.12] pt-10 sm:pt-16 lg:mt-auto">
         <div className="grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-12">
           <div className="lg:col-span-6">
             <a href="#home" className="flex h-11 items-center gap-2 text-[20px] tracking-[-0.02em]">

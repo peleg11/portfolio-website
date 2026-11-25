@@ -72,12 +72,12 @@
     width: min(100% - 2 * var(--gut), 1280px);
     margin-inline: auto;
   }
-  /* One screen per section from tablet up; on a phone sections are as tall as their content. */
+  /* One screen per section on desktop; phones and tall tablets size sections to their content. */
   .section {
     padding-top: var(--padt);
     padding-bottom: var(--padb);
   }
-  @media (min-width: 640px) {
+  @media (min-width: 1024px) {
     .section {
       min-height: 100svh;
     }
