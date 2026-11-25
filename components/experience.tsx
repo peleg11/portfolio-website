@@ -1,62 +1,55 @@
 'use client';
 
 import React from 'react';
-import SectionHeading from './section-heading';
-import {
-  VerticalTimeline,
-  VerticalTimelineElement,
-} from 'react-vertical-timeline-component';
-import 'react-vertical-timeline-component/style.min.css';
+import { LuArrowUpRight } from 'react-icons/lu';
 import { experiencesData } from '@/lib/data';
 import { useActiveInView } from '@/lib/hooks';
-import { useTheme } from '@/context/theme-context';
 
 export default function Experience() {
-  const { ref } = useActiveInView('Experience', 0.75);
-  const { theme } = useTheme();
+  const { ref } = useActiveInView('Experience');
 
   return (
-    <section
-      id='experience'
-      ref={ref}
-      className='scroll-mt-28 mb-28 sm:mb-40 w-full'
-    >
-      <SectionHeading>My experience</SectionHeading>
-      <VerticalTimeline lineColor=''>
-        {experiencesData.map((item, index) => (
-          <React.Fragment key={index}>
-            <VerticalTimelineElement
-              contentStyle={{
-                background:
-                  theme === 'light' ? '#f3f4f6' : 'rgba(255, 255, 255, 0.05)',
-                boxShadow: 'none',
-                border: '1px solid rgba(0, 0, 0, 0.05)',
-                textAlign: 'left',
-                padding: '1.3rem 2rem',
-              }}
-              contentArrowStyle={{
-                borderRight:
-                  theme === 'light'
-                    ? '0.4rem solid #9ca3af'
-                    : '0.4rem solid rgba(255, 255, 255, 0.5)',
-              }}
-              date={item.date}
-              icon={item.icon}
-              iconStyle={{
-                background:
-                  theme === 'light' ? 'white' : 'rgba(255, 255, 255, 0.15)',
-                fontSize: '1.5rem',
-              }}
-            >
-              <h3 className='font-semibold capitalize'>{item.title}</h3>
-              <p className='font-normal !mt-0'>{item.location}</p>
-              <p className='!mt-1 !font-normal text-gray-700 dark:text-white/75 '>
-                {item.description}
-              </p>
-            </VerticalTimelineElement>
-          </React.Fragment>
-        ))}
-      </VerticalTimeline>
+    <section ref={ref} id='experience' className='section min-h-[200svh] bg-surface'>
+      <div className='wrap'>
+        <h2 className='t-h2'>Experience and education</h2>
+        <ol className='mt-12 border-t border-ink/[0.12]'>
+          {experiencesData.map((item) => {
+            const Icon = item.icon;
+            return (
+              <li
+                key={item.org}
+                className='grid gap-3 border-b border-ink/[0.12] py-8 md:py-12 lg:grid-cols-12 lg:gap-6 lg:py-8'
+              >
+                <p className='flex items-center gap-3 text-sm text-muted lg:col-span-3 lg:items-start lg:pt-1'>
+                  <Icon aria-hidden className='h-4 w-4 shrink-0' />
+                  {item.date}
+                </p>
+                <div className='lg:col-span-8'>
+                  <h3 className='t-h3'>
+                    {item.role}
+                    <span className='text-muted'> · {item.org}</span>
+                  </h3>
+                  <p className='text-sm text-muted'>{item.location}</p>
+                  <p className='mt-3 max-w-[68ch] text-ink/80'>
+                    {item.description}
+                  </p>
+                  {'link' in item && item.link && (
+                    <a
+                      href={item.link.href}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className='link mt-3 inline-flex items-center gap-1 py-2 font-medium'
+                    >
+                      {item.link.label}
+                      <LuArrowUpRight aria-hidden className='h-4 w-4' />
+                    </a>
+                  )}
+                </div>
+              </li>
+            );
+          })}
+        </ol>
+      </div>
     </section>
   );
 }

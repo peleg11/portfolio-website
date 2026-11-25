@@ -1,110 +1,122 @@
-import React from "react";
-import { CgWorkAlt } from "react-icons/cg";
-import corpcommentImg from "@/public/corpcomment.png";
-import rmtdevImg from "@/public/rmtdev.png";
-import wordanalyticsImg from "@/public/wordanalytics.png";
-import { LuGraduationCap } from "react-icons/lu";
+import type { IconType } from "react-icons";
+import {
+  LuAtom,
+  LuBriefcase,
+  LuGraduationCap,
+  LuMousePointer2,
+  LuPenTool,
+  LuPlug,
+  LuSparkles,
+  LuWorkflow,
+} from "react-icons/lu";
+import {
+  SiAnthropic,
+  SiDocker,
+  SiFramer,
+  SiGit,
+  SiJss,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiPython,
+  SiReact,
+  SiRedux,
+  SiReduxsaga,
+  SiStyledcomponents,
+  SiTailwindcss,
+  SiTypescript,
+} from "react-icons/si";
 
 export const links = [
-  {
-    name: "Home",
-    hash: "#home",
-  },
-  {
-    name: "About",
-    hash: "#about",
-  },
-  {
-    name: "Skills",
-    hash: "#skills",
-  },
-  {
-    name: "Experience",
-    hash: "#experience",
-  },
-  {
-    name: "Contact",
-    hash: "#contact",
-  },
+  { name: "Home", hash: "#home" },
+  { name: "About", hash: "#about" },
+  { name: "Skills", hash: "#skills" },
+  { name: "Experience", hash: "#experience" },
+  { name: "Contact", hash: "#contact" },
 ] as const;
+
+export const contact = {
+  email: "shay.peleg11@gmail.com",
+  linkedin: "https://www.linkedin.com/in/shay-peleg11/",
+  github: "https://github.com/peleg11",
+  cv: "/ShayPelegCV.pdf",
+} as const;
 
 export const experiencesData = [
   {
-    title: "Full-Stack Engineer, Frontend Specialist · dig.ai",
-    location: "Tel-Aviv, IL",
+    role: "Full-stack engineer, frontend specialist",
+    org: "dig.ai",
+    location: "Tel Aviv, IL",
     description: `Led end-to-end development of two flagship AI chatbot products: an enterprise platform and the self-serve ask.dig.ai. Architected the frontend infrastructure and managed highly dynamic application state with Jotai and JSS. Expanded into full-stack work, connecting complex UI features to backend services that power sophisticated conversational workflows. Introduced AI-assisted development with Cursor and Claude Code, including custom skills now used across the entire R&D team.`,
-    icon: React.createElement(CgWorkAlt),
-    date: "2025 - Present",
+    link: { label: "Try ask.dig.ai", href: "https://ask.dig.ai" },
+    icon: LuBriefcase,
+    date: "2025 – present",
   },
   {
-    title: "Frontend Engineer · Code Ocean",
-    location: "Tel-Aviv, IL",
+    role: "Frontend engineer",
+    org: "Code Ocean",
+    location: "Tel Aviv, IL",
     description: `Spent 3 years building, refactoring and maintaining client-side features of a complex React single-page application. Created atomic React components and hooks, wired them to the API with Redux and Redux-Saga, and worked closely with backend, product and QA to ship a reliable, user-friendly experience.`,
-    icon: React.createElement(CgWorkAlt),
-    date: "2021 - 2024",
+    icon: LuBriefcase,
+    date: "2021 – 2024",
   },
   {
-    title: "B.Sc Software Engineering · SCE",
+    role: "B.Sc Software Engineering",
+    org: "SCE",
     location: "Beer Sheva, IL",
     description:
       "Sami Shamoon College of Engineering, majoring in Data Science. Started working as a frontend developer in my third year of study.",
-    icon: React.createElement(LuGraduationCap),
-    date: "2018 - 2022",
+    icon: LuGraduationCap,
+    date: "2018 – 2022",
   },
   {
-    title: "B.Sc Life Sciences · Ben-Gurion University",
+    role: "B.Sc Life Sciences",
+    org: "Ben-Gurion University",
     location: "Beer Sheva, IL",
     description:
       "Completed a 3.5-year degree in Life Sciences before moving into software engineering.",
-    icon: React.createElement(LuGraduationCap),
-    date: "2014 - 2018",
+    icon: LuGraduationCap,
+    date: "2014 – 2018",
   },
-] as const;
+];
 
-export const projectsData = [
-  {
-    title: "CorpComment",
-    description:
-      "I worked as a full-stack developer on this startup project for 2 years. Users can give public feedback to companies.",
-    tags: ["React", "Next.js", "MongoDB", "Tailwind", "Prisma"],
-    imageUrl: corpcommentImg,
-  },
-  {
-    title: "rmtDev",
-    description:
-      "Job board for remote developer jobs. I was the front-end developer. It has features like filtering, sorting and pagination.",
-    tags: ["React", "TypeScript", "Next.js", "Tailwind", "Redux"],
-    imageUrl: rmtdevImg,
-  },
-  {
-    title: "Word Analytics",
-    description:
-      "A public web app for quick analytics on text. It shows word count, character count and social media post limits.",
-    tags: ["React", "Next.js", "SQL", "Tailwind", "Framer"],
-    imageUrl: wordanalyticsImg,
-  },
-] as const;
+// Brand marks keep their own colours; `color: undefined` means the mark is black and follows the ink.
+// Concepts without a brand mark get a neutral glyph (`brand: false`), shown in the muted ink.
+type Skill = { name: string; icon: IconType; color?: string; brand: boolean };
 
-// Ordered by relevance to your positioning (AI + frontend first).
-// HTML and CSS removed: they're assumed at senior level.
-export const skillsData = [
-  "TypeScript",
-  "React",
-  "Next.js",
-  "Node.js",
-  "Python",
-  "Multi-Agent Systems",
-  "Claude Code",
-  "Cursor",
-  "Jotai",
-  "Redux",
-  "Redux-Saga",
-  "Tailwind CSS",
-  "Styled-components",
-  "JSS",
-  "Framer Motion",
-  "REST APIs",
-  "Docker",
-  "Git",
-  "UX Design",
-] as const;
+export const skillGroups: { title: string; skills: Skill[] }[] = [
+  {
+    title: "Frontend",
+    skills: [
+      { name: "TypeScript", icon: SiTypescript, color: "#3178C6", brand: true },
+      { name: "React", icon: SiReact, color: "#58C4DC", brand: true },
+      { name: "Next.js", icon: SiNextdotjs, brand: true },
+      { name: "Jotai", icon: LuAtom, brand: false },
+      { name: "Redux", icon: SiRedux, color: "#764ABC", brand: true },
+      { name: "Redux-Saga", icon: SiReduxsaga, color: "#86D46B", brand: true },
+      { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4", brand: true },
+      { name: "Styled-components", icon: SiStyledcomponents, color: "#DB7093", brand: true },
+      { name: "JSS", icon: SiJss, color: "#F7DF1E", brand: true },
+      { name: "Framer Motion", icon: SiFramer, color: "#0055FF", brand: true },
+      { name: "UX design", icon: LuPenTool, brand: false },
+    ],
+  },
+  {
+    title: "Backend and tooling",
+    skills: [
+      { name: "Node.js", icon: SiNodedotjs, color: "#5FA04E", brand: true },
+      { name: "Python", icon: SiPython, color: "#3776AB", brand: true },
+      { name: "REST APIs", icon: LuPlug, brand: false },
+      { name: "Docker", icon: SiDocker, color: "#2496ED", brand: true },
+      { name: "Git", icon: SiGit, color: "#F05032", brand: true },
+    ],
+  },
+];
+
+// The AI card's diagram: the hub and what it orchestrates, in the words of the About copy.
+export const aiHub = { name: "Multi-agent systems", icon: LuWorkflow };
+export const aiNodes: Skill[] = [
+  { name: "Claude Code", icon: SiAnthropic, brand: true },
+  { name: "Cursor", icon: LuMousePointer2, brand: false },
+  { name: "MCP integrations", icon: LuPlug, brand: false },
+  { name: "Custom skills", icon: LuSparkles, brand: false },
+];
