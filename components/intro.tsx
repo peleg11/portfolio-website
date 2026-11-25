@@ -19,9 +19,9 @@ export default function Intro() {
     <section
       ref={ref}
       id="home"
-      className="min-h-svh pb-6 pt-[calc(var(--nav)+40px)] sm:pb-16 sm:pt-[calc(var(--nav)+48px)] lg:h-svh lg:min-h-[600px]"
+      className="pb-6 pt-[calc(var(--nav)+40px)] sm:pb-16 sm:pt-[calc(var(--nav)+48px)]"
     >
-      <div className="wrap flex h-full min-h-[calc(100svh-var(--nav)-64px)] flex-col gap-6 sm:min-h-[calc(100svh-var(--nav)-112px)] sm:gap-8 lg:grid lg:min-h-0 lg:grid-cols-12 lg:gap-x-6">
+      <div className="wrap flex flex-col gap-6 sm:gap-8 lg:grid lg:grid-cols-12 lg:gap-x-6">
         <div className="lg:col-span-6 xl:col-span-5">
           <p className="enter flex items-center gap-3 text-sm text-muted" style={d(0)}>
             <Image
@@ -67,7 +67,7 @@ export default function Intro() {
         </div>
 
         <div
-          className="enter relative min-h-[240px] flex-1 lg:col-span-6 lg:col-start-7 lg:h-full"
+          className="enter relative h-[280px] sm:h-[440px] lg:col-span-6 lg:col-start-7 lg:h-[min(580px,calc(100svh-var(--nav)-112px))] lg:min-h-[460px]"
           style={d(120)}
         >
           <AgentChat />
