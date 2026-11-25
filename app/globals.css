@@ -15,8 +15,8 @@
 
   --nav: 56px;
   --gut: 24px;
-  --padt: 96px;
-  --padb: 48px;
+  --padt: 64px;
+  --padb: 32px;
   color-scheme: light;
 }
 .dark {
@@ -56,8 +56,14 @@
     outline-offset: 2px;
     border-radius: 4px;
   }
+  /* Phone padding is shorter than the 56px bar plus air, so anchor jumps stop 16px early. */
   section[id] {
-    scroll-margin-top: 0;
+    scroll-margin-top: 16px;
+  }
+  @media (min-width: 640px) {
+    section[id] {
+      scroll-margin-top: 0;
+    }
   }
 }
 
@@ -66,10 +72,15 @@
     width: min(100% - 2 * var(--gut), 1280px);
     margin-inline: auto;
   }
+  /* One screen per section from tablet up; on a phone sections are as tall as their content. */
   .section {
-    min-height: 100svh;
     padding-top: var(--padt);
     padding-bottom: var(--padb);
+  }
+  @media (min-width: 640px) {
+    .section {
+      min-height: 100svh;
+    }
   }
 
   .t-h1 {
@@ -162,38 +173,47 @@
   }
 }
 
-/* Diagram signal: a 2.8 s loop. The spine pulse runs down in the first 1.2 s; each tick fires as it
-   passes, and the node it reaches rings once. Paused by the card's button; still under reduced motion. */
+/* Diagram signal: a 2.4 s loop. The hub pings, a pulse runs down the spine in the first 1.08 s, each
+   tick fires as it passes, and the node it reaches lights up. Still under reduced motion. */
+.hub-ping {
+  animation: hub-ping 2.4s ease-out infinite;
+}
 .spine-pulse {
   opacity: 0;
-  animation: spine 2.8s linear infinite;
+  animation: spine 2.4s linear infinite;
 }
 .tick-pulse {
   opacity: 0;
-  animation: tick 2.8s linear infinite;
+  animation: tick 2.4s linear infinite;
 }
 .node-hit {
-  animation: node-hit 2.8s ease-out infinite;
+  animation: node-hit 2.4s ease-out infinite;
 }
-.is-paused .anim {
-  animation-play-state: paused;
+@keyframes hub-ping {
+  0% {
+    box-shadow: 0 0 0 0 rgb(var(--accent) / 0.7);
+  }
+  35%,
+  100% {
+    box-shadow: 0 0 0 12px rgb(var(--accent) / 0);
+  }
 }
 @keyframes spine {
   0% {
     opacity: 0;
-    transform: translateY(-20px);
+    transform: translateY(-32px);
   }
-  5% {
+  4% {
     opacity: 1;
   }
-  43% {
+  45% {
     opacity: 1;
-    transform: translateY(calc(var(--d) - 20px));
+    transform: translateY(calc(var(--d) - 32px));
   }
-  50%,
+  52%,
   100% {
     opacity: 0;
-    transform: translateY(calc(var(--d) - 20px));
+    transform: translateY(calc(var(--d) - 32px));
   }
 }
 @keyframes tick {
@@ -201,23 +221,23 @@
     opacity: 1;
     transform: translateX(0);
   }
-  14% {
+  12.5% {
     opacity: 1;
-    transform: translateX(19px);
+    transform: translateX(18px);
   }
-  18%,
+  16%,
   100% {
     opacity: 0;
-    transform: translateX(19px);
+    transform: translateX(18px);
   }
 }
 @keyframes node-hit {
   0% {
-    box-shadow: 0 0 0 1px rgb(var(--action) / 0.9);
+    box-shadow: 0 0 0 1.5px rgb(var(--action));
   }
-  25%,
+  35%,
   100% {
-    box-shadow: 0 0 0 1px rgb(var(--action) / 0);
+    box-shadow: 0 0 0 1.5px rgb(var(--action) / 0);
   }
 }
 

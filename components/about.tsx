@@ -36,7 +36,7 @@ export default function About() {
             ]}
           />
         </div>
-        <ul className="mt-12 grid gap-x-6 gap-y-10 border-t border-ink/[0.12] pt-10 sm:mt-16 lg:grid-cols-3 lg:gap-6">
+        <ul className="mt-10 grid gap-x-6 gap-y-8 border-t border-ink/[0.12] pt-8 sm:mt-16 sm:gap-y-10 sm:pt-10 lg:grid-cols-3 lg:gap-6">
           {facts.map((f) => (
             <li key={f.title}>
               <h3 className="t-h3">{f.title}</h3>

@@ -12,7 +12,7 @@ export default function Experience() {
     <section ref={ref} id='experience' className='section bg-surface'>
       <div className='wrap'>
         <h2 className='t-h2'>Experience and education</h2>
-        <ol className='mt-12 border-t border-ink/[0.12]'>
+        <ol className='mt-8 border-t border-ink/[0.12] sm:mt-12'>
           {experiencesData.map((item) => {
             const Icon = item.icon;
             return (
