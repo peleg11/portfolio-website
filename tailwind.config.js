@@ -1,16 +1,30 @@
 /** @type {import('tailwindcss').Config} */
+const token = (name) => `rgb(var(--${name}) / <alpha-value>)`;
+
 module.exports = {
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      colors: {
+        bg: token('bg'),
+        surface: token('surface'),
+        ink: token('ink'),
+        muted: token('muted'),
+        accent: token('accent'),
+        'accent-ink': token('accent-ink'),
+        action: token('action'),
+        'action-ink': token('action-ink'),
+      },
+      fontFamily: {
+        sans: ['var(--font-hanken)', 'system-ui', 'sans-serif'],
+      },
+      borderRadius: {
+        sm: '8px',
+        md: '12px',
+        lg: '20px',
       },
     },
   },

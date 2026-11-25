@@ -2,16 +2,246 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  --line-color: #e5e7eb;
+/* Palette "white-mint-tiles" and the inverse set for dark, dealt by the taste skill. */
+:root {
+  --bg: 255 255 255;
+  --surface: 243 243 243;
+  --ink: 35 35 35;
+  --muted: 104 104 104;
+  --accent: 161 255 203;
+  --accent-ink: 35 35 35;
+  --action: 35 35 35;
+  --action-ink: 255 255 255;
+
+  --nav: 56px;
+  --gut: 24px;
+  --padt: 64px;
+  --padb: 32px;
+  color-scheme: light;
 }
-html.dark {
-  --line-color: rgba(255, 255, 255, 0.2);
+.dark {
+  --bg: 35 35 35;
+  --surface: 48 48 48;
+  --ink: 255 255 255;
+  --muted: 164 164 164;
+  --action: 161 255 203;
+  --action-ink: 35 35 35;
+  color-scheme: dark;
 }
-.borderBlack {
-  @apply border border-black/10;
+@media (min-width: 640px) {
+  :root {
+    --nav: 72px;
+    --gut: 48px;
+    --padt: 120px;
+    --padb: 72px;
+  }
 }
-.custom-blur {
-  -webkit-filter: blur(10rem);
-  filter: blur(10rem);
+@media (min-width: 1024px) {
+  :root {
+    --gut: 80px;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-bg text-ink antialiased;
+    font-size: 16px;
+    line-height: 1.625;
+  }
+  ::selection {
+    @apply bg-accent text-accent-ink;
+  }
+  :focus-visible {
+    outline: 2px solid rgb(var(--action));
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  /* Phone padding is shorter than the 56px bar plus air, so anchor jumps stop 16px early. */
+  section[id] {
+    scroll-margin-top: 16px;
+  }
+  @media (min-width: 640px) {
+    section[id] {
+      scroll-margin-top: 0;
+    }
+  }
+}
+
+@layer components {
+  .wrap {
+    width: min(100% - 2 * var(--gut), 1280px);
+    margin-inline: auto;
+  }
+  /* Sections are as tall as their content at every width; padding sets the rhythm. */
+  .section {
+    padding-top: var(--padt);
+    padding-bottom: var(--padb);
+  }
+
+  .t-h1 {
+    font-size: clamp(40px, 3.33vw + 24px, 72px);
+    line-height: 1.02;
+    letter-spacing: -0.038em;
+    font-weight: 400;
+    text-wrap: balance;
+  }
+  .t-h2 {
+    font-size: clamp(30px, 1.67vw + 24px, 48px);
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    font-weight: 400;
+    text-wrap: balance;
+  }
+  .t-h3 {
+    font-size: 20px;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    font-weight: 500;
+  }
+  .t-lead {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  @media (min-width: 640px) {
+    .t-lead {
+      font-size: 20px;
+    }
+  }
+  .t-label {
+    font-size: 13px;
+    line-height: 1.25;
+    font-weight: 500;
+  }
+
+  /* One button pair, "arrow" look: step up on hover, press on click. */
+  .btn {
+    @apply inline-flex h-11 items-center justify-center gap-2 rounded-sm px-6 text-base font-medium;
+    transition: transform 160ms ease, background-color 160ms ease,
+      border-color 160ms ease;
+  }
+  .btn:hover {
+    transform: translateY(-1px);
+  }
+  .btn:active {
+    transform: translateY(0) scale(0.98);
+  }
+  .btn-primary {
+    @apply bg-action text-action-ink;
+  }
+  .btn-secondary {
+    @apply border border-ink/20 text-ink hover:border-ink/40 hover:bg-ink/[0.04];
+  }
+  .btn .arrow {
+    transition: transform 160ms ease;
+  }
+  .btn:hover .arrow {
+    transform: translateX(3px);
+  }
+
+  /* One link look: the underline draws on hover. */
+  .link {
+    background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px
+      no-repeat;
+    transition: background-size 200ms ease;
+  }
+  .link:hover,
+  .link:focus-visible {
+    background-size: 100% 1px;
+  }
+
+  .skip-link {
+    @apply absolute left-0 top-3 z-50 -translate-y-24 rounded-sm bg-action px-4 py-2 text-action-ink;
+  }
+  .skip-link:focus-visible {
+    @apply translate-y-0;
+  }
+
+  /* The hero enters once on load. CSS only, so the words show without script. */
+  .enter {
+    animation: enter 640ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+  @keyframes enter {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+  }
+}
+
+/* Diagram signal: a 2.4 s loop. The hub pings, a pulse runs down the spine in the first 1.08 s, each
+   tick fires as it passes, and the node it reaches lights up. Still under reduced motion. */
+.hub-ping {
+  animation: hub-ping 2.4s ease-out infinite;
+}
+.spine-pulse {
+  opacity: 0;
+  animation: spine 2.4s linear infinite;
+}
+.tick-pulse {
+  opacity: 0;
+  animation: tick 2.4s linear infinite;
+}
+.node-hit {
+  animation: node-hit 2.4s ease-out infinite;
+}
+@keyframes hub-ping {
+  0% {
+    box-shadow: 0 0 0 0 rgb(var(--accent) / 0.7);
+  }
+  35%,
+  100% {
+    box-shadow: 0 0 0 12px rgb(var(--accent) / 0);
+  }
+}
+@keyframes spine {
+  0% {
+    opacity: 0;
+    transform: translateY(-32px);
+  }
+  4% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 1;
+    transform: translateY(calc(var(--d) - 32px));
+  }
+  52%,
+  100% {
+    opacity: 0;
+    transform: translateY(calc(var(--d) - 32px));
+  }
+}
+@keyframes tick {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  12.5% {
+    opacity: 1;
+    transform: translateX(18px);
+  }
+  16%,
+  100% {
+    opacity: 0;
+    transform: translateX(18px);
+  }
+}
+@keyframes node-hit {
+  0% {
+    box-shadow: 0 0 0 1.5px rgb(var(--action));
+  }
+  35%,
+  100% {
+    box-shadow: 0 0 0 1.5px rgb(var(--action) / 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
 }

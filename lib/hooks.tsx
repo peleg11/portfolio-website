@@ -3,12 +3,10 @@ import { useActiveSectionContext } from '@/context/active-section-context';
 import { useEffect } from 'react';
 import type { SectionName } from '@/lib/type';
 
-export const useActiveInView = (
-  activeName: SectionName,
-  threshold: number = 1
-) => {
+// A section is active while it crosses the middle of the screen, whatever its height.
+export const useActiveInView = (activeName: SectionName) => {
   const { setActiveSection, timeOfLastClick } = useActiveSectionContext();
-  const { ref, inView } = useInView({ threshold });
+  const { ref, inView } = useInView({ rootMargin: '-50% 0px -50% 0px' });
 
   useEffect(() => {
     if (inView && Date.now() - timeOfLastClick > 1000)

@@ -1,17 +1,24 @@
 'use client';
 import { useTheme } from '@/context/theme-context';
 import React from 'react';
-import { BsMoon, BsSun } from 'react-icons/bs';
+import { LuMoon, LuSun } from 'react-icons/lu';
 
 export default function ThemeSwitch() {
   const { theme, toggleTheme } = useTheme();
+  const next = theme === 'light' ? 'dark' : 'light';
 
   return (
     <button
+      type='button'
       onClick={toggleTheme}
-      className='fixed bottom-8 right-8 bg-white w-[3rem] h-[3rem] bg-opacity-80 backdrop-blur-[0.5rem] border border-gray border-opacity-40 shadow-2xl rounded-full flex items-center justify-center hover:scale-[1.15] active:scale-105 transition-all dark:bg-gray-950'
+      aria-label={`Switch to ${next} theme`}
+      className='grid h-11 w-11 place-items-center rounded-sm text-ink transition-colors hover:bg-ink/[0.06]'
     >
-      {theme === 'light' ? <BsSun /> : <BsMoon />}
+      {theme === 'light' ? (
+        <LuMoon aria-hidden className='h-5 w-5' />
+      ) : (
+        <LuSun aria-hidden className='h-5 w-5' />
+      )}
     </button>
   );
 }
