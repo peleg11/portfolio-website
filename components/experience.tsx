@@ -9,7 +9,7 @@ export default function Experience() {
   const { ref } = useActiveInView('Experience');
 
   return (
-    <section ref={ref} id='experience' className='section min-h-[200svh] bg-surface'>
+    <section ref={ref} id='experience' className='section bg-surface'>
       <div className='wrap'>
         <h2 className='t-h2'>Experience and education</h2>
         <ol className='mt-12 border-t border-ink/[0.12]'>
@@ -18,7 +18,7 @@ export default function Experience() {
             return (
               <li
                 key={item.org}
-                className='grid gap-3 border-b border-ink/[0.12] py-8 md:py-12 lg:grid-cols-12 lg:gap-6 lg:py-8'
+                className='grid gap-3 border-b border-ink/[0.12] py-8 lg:grid-cols-12 lg:gap-6'
               >
                 <p className='flex items-center gap-3 text-sm text-muted lg:col-span-3 lg:items-start lg:pt-1'>
                   <Icon aria-hidden className='h-4 w-4 shrink-0' />

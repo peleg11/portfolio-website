@@ -27,7 +27,7 @@ const channels = [
 ];
 
 const fieldClass =
-  "mt-2 w-full rounded-sm border border-ink/25 bg-bg px-4 text-base transition-colors hover:border-ink/45 aria-[invalid=true]:border-red-600 dark:aria-[invalid=true]:border-red-400";
+  "mt-2 w-full rounded-sm border border-ink/55 bg-bg px-4 text-base transition-colors hover:border-ink/80 aria-[invalid=true]:border-red-600 dark:aria-[invalid=true]:border-red-400";
 
 // After a submit that fails validation, move focus to the first field with an error.
 function FocusFirstError() {

@@ -144,7 +144,7 @@
   }
 
   .skip-link {
-    @apply absolute left-[var(--gut)] top-3 z-50 -translate-y-24 rounded-sm bg-action px-4 py-2 text-action-ink;
+    @apply absolute left-0 top-3 z-50 -translate-y-24 rounded-sm bg-action px-4 py-2 text-action-ink;
   }
   .skip-link:focus-visible {
     @apply translate-y-0;

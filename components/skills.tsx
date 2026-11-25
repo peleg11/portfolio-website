@@ -29,7 +29,7 @@ export default function Skills() {
   const Hub = aiHub.icon;
 
   return (
-    <section ref={ref} id="skills" className="section max-sm:min-h-[200svh]">
+    <section ref={ref} id="skills" className="section">
       <div className="wrap">
         <h2 className="t-h2 max-w-[20ch]">Skills and tools</h2>
         <p className="t-lead mt-4 max-w-[52ch] text-ink/80">

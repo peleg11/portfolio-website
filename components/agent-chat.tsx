@@ -97,8 +97,9 @@ export default function AgentChat() {
         </button>
       </div>
 
-      {/* Anchored to the bottom like a real chat, so a short frame shows the newest lines. */}
-      <div className="flex min-h-0 flex-1 flex-col justify-end gap-5 overflow-hidden p-5 [mask-image:linear-gradient(to_bottom,transparent,black_40px)] sm:p-6 lg:justify-start lg:gap-6 lg:p-8 lg:[mask-image:none]">
+      {/* Runs from the top while it fits; once it overflows, the end-anchor keeps the newest lines in
+          view (the spacer at the end takes the spare room, then shrinks to nothing). */}
+      <div className="flex min-h-0 flex-1 flex-col justify-end gap-5 overflow-hidden p-5 [mask-image:linear-gradient(to_bottom,transparent_12px,black_48px)] sm:p-6 lg:gap-6 lg:p-8 [&>*]:shrink-0">
         <p className="max-w-[85%] self-end rounded-md bg-bg px-4 py-3">
           {question}
         </p>
@@ -155,6 +156,7 @@ export default function AgentChat() {
             Source: ShayPelegCV.pdf
           </a>
         )}
+        <div aria-hidden className="-mt-5 !shrink basis-0 grow lg:-mt-6" />
       </div>
     </div>
   );
