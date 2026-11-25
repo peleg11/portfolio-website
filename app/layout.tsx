@@ -15,11 +15,14 @@ const title = "Shay Peleg: senior full-stack engineer for AI products";
 const description =
   "Shay Peleg builds React, Next.js and TypeScript frontends and multi-agent AI features, with 5 years of experience on production web apps in Tel Aviv.";
 
+// The share image is app/opengraph-image.png (Next's file convention); metadataBase makes its URL absolute.
 export const metadata = {
+  metadataBase: new URL("https://shaypeleg.vercel.app"),
   title,
   description,
-  openGraph: { title, description, type: "website" },
-  twitter: { card: "summary", title, description },
+  alternates: { canonical: "/" },
+  openGraph: { title, description, type: "website", url: "/", siteName: "Shay Peleg" },
+  twitter: { card: "summary_large_image", title, description },
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#ffffff" },
     { media: "(prefers-color-scheme: dark)", color: "#232323" },
